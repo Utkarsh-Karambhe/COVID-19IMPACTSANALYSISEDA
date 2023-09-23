@@ -1,0 +1,11 @@
+import pandas as pd
+df = pd.read_csv("raw_data.csv")
+total_cases = df.groupby("location")["total_cases"].sum()
+import matplotlib.pyplot as plt
+plt.figure(figsize=(12, 6))
+plt.plot(total_cases.index, total_cases.values)
+plt.xlabel("Date")
+plt.xticks(rotation=60)
+plt.ylabel("Total cases")
+plt.title("Spread of COVID-19 cases")
+plt.show()
